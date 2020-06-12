@@ -9,8 +9,11 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
     routes: [
         {
-            // path: url 주소
-            // component: url에 해당하는 컴포넌트
+            // home에 들어가자 말자 /news로 리다이렉트가 된다.
+            path: '/',
+            redirect: '/news',
+        },
+        {
             path: '/news',
             component: NewsView,
         },
