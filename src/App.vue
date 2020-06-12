@@ -15,4 +15,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+@import './assets/scss/reset.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+</style>
