@@ -1,6 +1,6 @@
 <template
     ><div>
-        <div v-for="(user, index) in users" :key="index">
+        <div v-for="(user, index) in this.$store.state.jobs" :key="index">
             {{ user.title }}
         </div>
     </div>
@@ -9,16 +9,8 @@
 <script>
 import { fetchJobList } from '../api/index';
 export default {
-    data() {
-        return {
-            users: [],
-        };
-    },
-    // 라이프 싸이클 훅
     created() {
-        fetchJobList()
-            .then((res) => (this.users = res.data))
-            .catch((err) => console.log(err));
+        this.$store.dispatch('FETCH_JOBS');
     },
 };
 </script>

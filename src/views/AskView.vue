@@ -1,24 +1,15 @@
 <template
     ><div>
-        <div v-for="(user, index) in users" :key="index">
+        <div v-for="(user, index) in this.$store.state.asks" :key="index">
             {{ user.title }}
         </div>
     </div>
 </template>
 
 <script>
-import { fetchAskList } from '../api/index';
 export default {
-    data() {
-        return {
-            users: [],
-        };
-    },
-    // 라이프 싸이클 훅
     created() {
-        fetchAskList()
-            .then((res) => (this.users = res.data))
-            .catch((err) => console.log(err));
+        this.$store.dispatch('FETCH_ASKS');
     },
 };
 </script>
