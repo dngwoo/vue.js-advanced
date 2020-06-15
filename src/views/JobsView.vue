@@ -1,17 +1,22 @@
-<template
-    ><div>
-        <div v-for="(user, index) in this.$store.state.jobs" :key="index">
-            {{ user.title }}
-        </div>
+<template>
+  <div>
+    <div v-for="(user, index) in fetchJobs" :key="index">
+      {{ user.title }}
     </div>
+  </div>
 </template>
 
 <script>
-import { fetchJobList } from '../api/index';
+import { mapState, mapGetters } from 'vuex';
 export default {
-    created() {
-        this.$store.dispatch('FETCH_JOBS');
-    },
+  computed: {
+    ...mapGetters(['fetchJobs']),
+    // ...mapState({ fetchNews: (state) => state.news }),
+    // fetchNews () {return this.$store.state.news}
+  },
+  created() {
+    this.$store.dispatch('FETCH_JOBS');
+  },
 };
 </script>
 
