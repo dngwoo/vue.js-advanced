@@ -7,23 +7,24 @@
 </template>
 
 <script>
-import ToolBar from './components/ToolBar.vue';
+import ToolBar from "./components/ToolBar.vue";
 export default {
   components: {
-    ToolBar,
-  },
+    ToolBar
+  }
 };
 </script>
 
 <style>
-@import './assets/scss/reset.scss';
+@import "./assets/css/reset.css";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
 }
 
@@ -36,8 +37,7 @@ a {
   padding: 15px;
 }
 .news__content {
-  display: flex;
-  padding: 5px;
+  padding: 10px 0px;
 }
 .news__link {
   margin-right: 10px;
@@ -57,5 +57,6 @@ a {
 .news__time-ago {
   color: lightgray;
   font-size: 0.8rem;
+  vertical-align: middle;
 }
 </style>

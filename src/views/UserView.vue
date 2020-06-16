@@ -35,6 +35,4 @@ export default {
 span {
   margin-bottom: 10px;
 }
-.user__created {
-}
 </style>

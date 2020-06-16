@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchAskList, fetchJobList, fetchUserInfo } from '../api/index';
+import { fetchNewsList, fetchAskList, fetchJobList, fetchUserInfo, fetchItem } from '../api/index';
 
 export default {
   FETCH_NEWS({ commit }) {
@@ -19,6 +19,16 @@ export default {
   FETCH_USER({ commit }, userName) {
     fetchUserInfo(userName)
       .then((res) => commit('SET_USER', res.data))
+      .catch((err) => console.log(err));
+  },
+  FETCH_ITEM({ commit }, itemId) {
+    console.log(itemId);
+
+    fetchItem(itemId)
+      .then(({ data }) => {
+        console.log(data);
+        commit('SET_ITEM', data);
+      }) // res.data를 {data}로 한번에 받음
       .catch((err) => console.log(err));
   },
 };
