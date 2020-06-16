@@ -4,4 +4,4 @@
 - [x] 라우터 params을 이용한 User 상세 페이지 구현
 - [x] 라우터 params을 이용한 Item 상세 페이지 구현
 - [x] Item 상세 페이지 구현 시 contents 부분 v-html 디렉티브 사용
-- [ ]
+- [x] Item 스타일링 및 트랜지션

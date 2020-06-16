@@ -2,7 +2,9 @@
   <div id="app">
     <tool-bar></tool-bar>
     <!-- url 주소에 따라서 해당 컴포넌트를 출력해준다. -->
-    <router-view></router-view>
+    <transition name="slide" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -10,8 +12,8 @@
 import ToolBar from "./components/ToolBar.vue";
 export default {
   components: {
-    ToolBar
-  }
+    ToolBar,
+  },
 };
 </script>
 
@@ -58,5 +60,14 @@ a {
   color: lightgray;
   font-size: 0.8rem;
   vertical-align: middle;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 5s, transform 5s;
+}
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-30%);
+  opacity: 0;
 }
 </style>
