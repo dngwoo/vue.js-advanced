@@ -1,11 +1,14 @@
 export default {
-  getNews(state, data) {
+  SET_NEWS(state, data) {
     state.news = data;
   },
-  getAsks(state, data) {
+  SET_ASK(state, data) {
     state.asks = data;
   },
-  getJobs(state, data) {
+  SET_JOBS(state, data) {
     state.jobs = data;
+  },
+  SET_USER(state, data) {
+    state.user = data;
   },
 };
