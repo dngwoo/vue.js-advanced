@@ -37,21 +37,25 @@ a {
 }
 .news__content {
   display: flex;
-  margin-bottom: 10px;
+  padding: 5px;
 }
 .news__link {
-  transform-origin: left;
-  transition: color 0.1s, transform 0.1s;
+  margin-right: 10px;
+  transition: color 0.1s;
 }
 .news__link:hover {
   color: #42b883;
-  transform: scale(1.1);
+}
+.news__user {
+  color: chocolate;
+  margin-right: 10px;
+  transition: color 0.1s;
+}
+.news__user:hover {
+  color: #35495e;
 }
 .news__time-ago {
   color: lightgray;
   font-size: 0.8rem;
-}
-.news__user {
-  color: chocolate;
 }
 </style>
