@@ -11,19 +11,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 export default {
-  computed: {
-    ...mapGetters({ user: 'fetchUser' }),
-    date() {
-      const createDate = new Date(this.user.created_time);
-      const newDate = `${createDate.getFullYear()}-${createDate.getMonth()}-${createDate.getDay()} ${createDate.getHours()}:${createDate.getMinutes()}:${createDate.getSeconds()}`;
-      return newDate;
-    },
-  },
-  created() {
-    const id = this.$route.params.id;
-    this.$store.dispatch('FETCH_USER', id);
+  props: {
+    user: Object,
+    date: String,
   },
 };
 </script>
