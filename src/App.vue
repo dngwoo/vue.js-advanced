@@ -12,8 +12,8 @@
 import ToolBar from "./components/ToolBar.vue";
 export default {
   components: {
-    ToolBar,
-  },
+    ToolBar
+  }
 };
 </script>
 
@@ -35,36 +35,12 @@ a {
   text-decoration: none;
 }
 
-.news {
-  padding: 15px;
-}
-.news__content {
-  padding: 10px 0px;
-}
-.news__link {
-  margin-right: 10px;
-  transition: color 0.1s;
-}
-.news__link:hover {
-  color: #42b883;
-}
-.news__user {
-  color: chocolate;
-  margin-right: 10px;
-  transition: color 0.1s;
-}
-.news__user:hover {
-  color: #35495e;
-}
-.news__time-ago {
-  color: lightgray;
-  font-size: 0.8rem;
-  vertical-align: middle;
-}
+/* News, Ask, Jobs */
 
+/* Transition */
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity 5s, transform 5s;
+  transition: opacity 0.5s, transform 0.5s;
 }
 .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateX(-30%);

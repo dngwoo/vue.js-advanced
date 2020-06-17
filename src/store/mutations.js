@@ -3,7 +3,7 @@ export default {
     state.news = data;
   },
   SET_ASK(state, data) {
-    state.asks = data;
+    state.ask = data;
   },
   SET_JOBS(state, data) {
     state.jobs = data;

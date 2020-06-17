@@ -1,11 +1,3 @@
-# 리팩토링 1 - 리스트 아이템 컴포넌트 공통화
-
-- [x] 공통 컴포넌트 구현 (재사용되는 부분들을 하나의 컴포넌트에 모아준다)
-- [x] 공통 컴포넌트 computed, created 속성 구현
-- [x] v-if,v-else 뷰디렉티브를 사용
-- [x] routes 배열 모듈화(노션에 정리)
-
-```javascript
 <template>
   <ul class="news__list">
     <li class="news__list-item" v-for="(item, index) in listItems" :key="index">
@@ -21,7 +13,7 @@
           :to="`/user/${item.user}`"
         >by {{ item.user }}</router-link>
         <a v-else class="news__user" target="_blank" :href="`${item.url}`">by {{ item.domain }}</a>
-        <span class="news__time-ago">{{ iteㅅm.time_ago }}</span>
+        <span class="news__time-ago">{{ item.time_ago }}</span>
       </div>
     </li>
   </ul>
@@ -92,4 +84,3 @@ export default {
   margin-top: 0.5em;
 }
 </style>
-```
