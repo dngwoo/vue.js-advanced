@@ -9,24 +9,24 @@
 </template>
 
 <script>
-import ToolBar from "./components/ToolBar.vue";
+import ToolBar from './components/ToolBar.vue';
 export default {
   components: {
-    ToolBar
-  }
+    ToolBar,
+  },
 };
 </script>
 
 <style>
-@import "./assets/css/reset.css";
+@import './assets/css/reset.css';
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 14px;
 }
 
