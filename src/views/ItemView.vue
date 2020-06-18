@@ -2,7 +2,11 @@
   <div>
     <section>
       <user-profile :item="item" :data="date">
-        <span slot="user__info" class="user__id">{{ "Posted: " + item.user }}</span>
+        <router-link
+          slot="user__info"
+          class="user__id"
+          :to="`/user/${item.user}`"
+        >{{ "Posted: " + item.user }}</router-link>
         <span slot="user__info" class="user__created">{{ "Time: " + date }}</span>
       </user-profile>
     </section>
@@ -40,5 +44,11 @@ export default {
   font-weight: bold;
   margin: 1.5em 0;
   font-size: 1.1rem;
+}
+.user__id {
+  transition: color 0.2s;
+}
+.user__id:hover {
+  color: chocolate;
 }
 </style>
