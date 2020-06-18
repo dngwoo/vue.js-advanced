@@ -4,8 +4,9 @@
       <i class="far fa-user-circle fa-3x"></i>
     </div>
     <div class="user__info">
-      <span class="user__id">UserId: {{ user.id }}</span>
-      <span class="user__created">UserCreated(Detail): {{ date }}</span>
+      <slot name="user__info">
+        <!-- 알아서 지정 하는 곳 -->
+      </slot>
     </div>
   </div>
 </template>
@@ -15,7 +16,8 @@ export default {
   props: {
     user: Object,
     date: String,
-  },
+    item: Object
+  }
 };
 </script>
 

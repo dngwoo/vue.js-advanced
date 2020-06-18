@@ -5,3 +5,5 @@
 - [x] 두번째 vuex에서 바로 가져오는 방법
 
 ![제목 없음](https://user-images.githubusercontent.com/56942649/84909186-58ff7e00-b0f0-11ea-81f8-0fddd7f483c7.png)
+
+- [x] slot을 이용한 사용자 프로필 컴포넌트 구현
