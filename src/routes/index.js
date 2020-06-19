@@ -20,6 +20,17 @@ export const router = new VueRouter({
       name: 'news',
       component: NewsView,
       // component: createListView('NewsView'),
+      component: NewsView,
+      beforeEnter: (to, from, next) => {
+        console.log('to', to); // 이동할 URL의 라우팅 정보, object
+        console.log('from', from); // 현재 URL의 라우팅 정보, object
+        console.log(next); // function
+        if (to.auth) {
+          next();
+        } else {
+          router.push('/login');
+        }
+      },
     },
     {
       path: '/ask',
