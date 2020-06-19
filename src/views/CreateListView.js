@@ -8,12 +8,8 @@ export default function createListView(name) {
     render(h) {
       return h(ListView);
     },
-    created() {
-      bus.$emit('start:spinner');
-      this.$store
-        .dispatch('FETCH_LIST', this.$route.name)
-        .then((res) => bus.$emit('end:spinner'))
-        .catch((err) => console.log(err));
+    mounted() {
+      bus.$emit('end:spinner');
     },
   };
 }
