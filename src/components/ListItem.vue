@@ -1,17 +1,13 @@
 <template>
   <ul class="news__list">
     <li class="news__list-item" v-for="(item, index) in listItems" :key="index">
-      <span class="news__point">{{item.points || 0}}</span>
+      <span class="news__point">{{ item.points || 0 }}</span>
 
       <div class="news__column">
         <a v-if="item.domain" class="news__link" target="_blank" :href="item.url">{{ item.title }}</a>
         <router-link v-else class="news__link" :to="`item/${item.id}`">{{ item.title }}</router-link>
 
-        <router-link
-          v-if="item.user"
-          class="news__user"
-          :to="`/user/${item.user}`"
-        >by {{ item.user }}</router-link>
+        <router-link v-if="item.user" class="news__user" :to="`/user/${item.user}`">by {{ item.user }}</router-link>
         <a v-else class="news__user" target="_blank" :href="`${item.url}`">by {{ item.domain }}</a>
         <span class="news__time-ago">{{ item.time_ago }}</span>
       </div>
@@ -23,19 +19,20 @@
 export default {
   computed: {
     listItems() {
-      const { news, ask, jobs } = this.$store.state;
-      const name = this.$route.name;
-      if (name === "news") {
-        return news;
-      } else if (name === "ask") {
-        return ask;
-      } else if (name === "jobs") {
-        return jobs;
-      } else {
-        return null;
-      }
-    }
-  }
+      return this.$store.state.list;
+      // const { news, ask, jobs } = this.$store.state;
+      // const name = this.$route.name;
+      // if (name === "news") {
+      //   return news;
+      // } else if (name === "ask") {
+      //   return ask;
+      // } else if (name === "jobs") {
+      //   return jobs;
+      // } else {
+      //   return null;
+      // }
+    },
+  },
 };
 </script>
 

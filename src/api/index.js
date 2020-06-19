@@ -8,11 +8,8 @@ const config = {
 };
 
 // 2. API 함수들을 정리
-export const fetchNewsList = () => axios.get(`${config.baseUrl}news/1.json`);
 
-export const fetchAskList = () => axios.get(`${config.baseUrl}ask/1.json`);
-
-export const fetchJobList = () => axios.get(`${config.baseUrl}jobs/1.json`);
+export const fetchList = (pageName) => axios.get(`${config.baseUrl}${pageName}/1.json`);
 
 export const fetchUserInfo = (userName) => axios.get(`${config.baseUrl}user/${userName}.json`);
 
