@@ -5,28 +5,54 @@
     <transition name="slide" mode="out-in">
       <router-view></router-view>
     </transition>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
 <script>
-import ToolBar from './components/ToolBar.vue';
+import ToolBar from "./components/ToolBar.vue";
+import Spinner from "./components/Spinner.vue";
+import bus from "./utils/bus";
 export default {
   components: {
     ToolBar,
+    Spinner
   },
+  data() {
+    return {
+      loadingStatus: false
+    };
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+    }
+  },
+  created() {
+    bus.$on("start:spinner", this.startSpinner);
+    bus.$on("end:spinner", this.endSpinner);
+  },
+  beforeDestroy() {
+    // 이벤트가 쌓이지 않게 지워준다.
+    bus.$off("start:spinner", this.startSpinner);
+    bus.$off("end:spinner", this.endSpinner);
+  }
 };
 </script>
 
 <style>
-@import './assets/css/reset.css';
+@import "./assets/css/reset.css";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
 }
 

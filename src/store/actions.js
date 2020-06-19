@@ -7,9 +7,12 @@ import {
 } from "../api/index";
 
 export default {
-  FETCH_NEWS({ commit }) {
+  FETCH_NEWS({ commit }, item) {
     fetchNewsList()
-      .then((res) => commit("SET_NEWS", res.data))
+      .then((res) => {
+        console.log(item);
+        commit("SET_NEWS", res.data);
+      })
       .catch((err) => console.log(err));
   },
   FETCH_ASK({ commit }) {
@@ -19,7 +22,9 @@ export default {
   },
   FETCH_JOBS({ commit }) {
     fetchJobList()
-      .then((res) => commit("SET_JOBS", res.data))
+      .then((res) => {
+        commit("SET_JOBS", res.data);
+      })
       .catch((err) => console.log(err));
   },
   FETCH_USER({ commit }, userName) {
