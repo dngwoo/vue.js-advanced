@@ -1,24 +1,22 @@
-# 리팩토링 3 - 데이터 호출과 UX
+# 리팩토링 5 - async & await를 이용한 비동기 처리
 
-- [x] UX를 고려한 데이터 호출 시점
-- [x] 라이프 사이클 훅을 이용한 데이터 호출 방법의 문제와 비동기 처리 코드 수정
-- [x] 라우터 네비게이션을 이용한 데이터 호출 방법
+```javascript
+// store/action.js
+async FETCH_LIST({ commit }, pageName) {
+const response = await fetchList(pageName);
+commit('SET_LIST', response.data);
+return response;
+},
 
-1. 컴포넌트 라이프 싸이클 훅 (mixin이나 hoc에서 사용)
-
-   - created : 컴포넌트가 생성되지말자 호출되는 로직
-
-2. 라우터 네비게이션 가드 (라우팅 시점에 동작)
-
-   - 라우터로 특정 url에 접근했을 때 접근 전에 동작들을 정의하는 속성(함수)
-
-3. 알아야 될 것
-
-- 라우터 네비게이션 가드를 이용하게 되면 데이터를 다 받아온뒤 다음 네비게이션으로 넘어가고 컴포넌트가 생성되기 때문에 spinner 가 됐든 뭐가 됐든 ui 적 요소가 반드시 있어야 한다.
-- ux를 고려해서 데이터 호출을 신중히 골라야한다.
-
-  일단 화면을 뿌리고 데이터를 받아올지 ← created
-
-  아니면 데이터를 다 받아오고 화면을 뿌릴지 ← 네비게이션 가드
-
-  두가지의 path을 이용하여 신중히 사용하자
+// api/index.js
+export const fetchList = async (pageName) => {
+  try {
+    const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    // .then.catch 의 catch보다 좋은 점은 .catch는 네트워크 오류 단만 잡아 내지만
+    // catch(error)는 try에 있는 모든 로직의 오류를 잡아낸다.
+    console.log(error);
+  }
+};
+```
